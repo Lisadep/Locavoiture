@@ -36,31 +36,22 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Prochainement</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Prochainement</a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
                          {# boutons du menu #}
-                         <div class="col-12 col-lg-7 d-flex justify-content-end">
-                             <div class="col-12 col-lg-2">
-                                 {# <a href="{{ path('app_register') }}" type="button" class="btn bg-dark text-white fw-bold shadow">Inscription</a> #}
-                             </div>
-                         </div>
-                         <div class="col-12 col-lg-6 d-flex justify-content-end">
+                        <div class="col-12 col-lg-8 d-flex justify-content-end">
                             <div class="col-12 col-lg-2">
-                                <a href="#" type="button" class="btn bg-dark text-white fw-bold shadow">Connexion</a>
+                                <a href="{{ path ('app_register')}}" type="button" class="btn bg-dark text-white fw-bold shadow">Inscription</a>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-6 d-flex justify-content-end">
                             <div class="col-12 col-lg-2">
-                                <a href="#" type="button" class="btn bg-dark text-white fw-bold shadow">Déconnexion</a>
+                                <a href="{{ path ('app_login')}}" type="button" class="btn bg-dark text-white fw-bold shadow">Connexion</a>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-6 d-flex justify-content-end">
                             <div class="col-12 col-lg-2">
-                                <a href="#" type="button" class="btn bg-dark text-white fw-bold shadow">Back-office</a>
+                                <a href="{{ path ('app_logout')}}" type="button" class="btn bg-dark text-white fw-bold shadow">Deconnexion</a>
+                            </div>
+                            <div class="col-12 col-lg-2">
+                                <a href="#" type="button" class="btn bg-dark text-white fw-bold shadow">Back Office</a>
                             </div>
                         </div>
                     </nav>

@@ -31,6 +31,9 @@ class Voiture
     #[ORM\Column(type: 'boolean')]
     private $active;
 
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $description;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +107,18 @@ class Voiture
     public function setActive(bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

@@ -9,6 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AccueilController extends AbstractController
 {
+    #[Route('/')]
+    public function locaVoiture()
+    {
+        return $this->redirectToRoute('accueil');
+    }
+    
     #[Route('/accueil', name: 'pageAccueil')]
     public function accueilListeDesVoitures(VoitureRepository $repository): Response
     {
