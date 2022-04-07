@@ -11,6 +11,7 @@ class Voiture
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    // Attributs (ou propriétés) ci-dessous
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]

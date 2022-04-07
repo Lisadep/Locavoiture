@@ -39,20 +39,35 @@
                                 </ul>
                             </div>
                         </div>
-                         {# boutons du menu #}
+                         {# boutons du menu avec conditions d'affichage #}
+
                         <div class="col-12 col-lg-8 d-flex justify-content-end">
+                        {# S'il y a une session ouverte #}
+                        {% if app.user %}
+                            <div class="col-12 col-lg-2">
+                                <a href="#" type="button" class="btn bg-dark text-white fw-bold shadow">Panier</a>
+                            </div>
+                            <div class="col-12 col-lg-2">
+                                <a href="{{ path ('app_logout')}}" type="button" class="btn bg-dark text-white fw-bold shadow">Deconnexion</a>
+                            </div>
+                            {% else %}
                             <div class="col-12 col-lg-2">
                                 <a href="{{ path ('app_register')}}" type="button" class="btn bg-dark text-white fw-bold shadow">Inscription</a>
                             </div>
                             <div class="col-12 col-lg-2">
                                 <a href="{{ path ('app_login')}}" type="button" class="btn bg-dark text-white fw-bold shadow">Connexion</a>
                             </div>
-                            <div class="col-12 col-lg-2">
-                                <a href="{{ path ('app_logout')}}" type="button" class="btn bg-dark text-white fw-bold shadow">Deconnexion</a>
-                            </div>
-                            <div class="col-12 col-lg-2">
-                                <a href="#" type="button" class="btn bg-dark text-white fw-bold shadow">Back Office</a>
-                            </div>
+                            {% endif %}
+                            {# Vérification si le user en session est admin #}
+                            {% if app.user == true %}
+                                {% for role in app.user.roles %}
+                                    {% if role == "ROLE_ADMIN" %}
+                                        <div class="col-12 col-lg-2">
+                                            <a href="{{ path ('admin')}}" type="button" class="btn bg-dark text-white fw-bold shadow">Back Office</a>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </nav>
                 </div>

@@ -12,7 +12,7 @@
         {% for voiture in voitures %}
         <div class="col-12 col-lg-4 mt-5">
             <div class="card" style="width: 18rem;">
-                <small><img src="..." class="card-img-top" alt="image voiture"></small>
+                <small><img src="{{ asset('images/upload/' ~ voiture.image) }}" class="card-img-top" alt="{{ voiture.nom|raw }}"></small>
                 <div class="card-body">
                     <h5 class="card-title">{{ voiture.nom|raw }}</h5>
                     <p class="card-text">{{ voiture.description|raw }}</p>
@@ -20,11 +20,10 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ voiture.marque|raw }}</li>
                     <li class="list-group-item">{{ voiture.couleur|raw }}</li>
-                    <li class="list-group-item">{{ voiture.prix }}&ensp;€</li>
+                    <li class="list-group-item">{{ voiture.prix|number_format(2, ',', '') }}&ensp;€</li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">Lien 1</a>
-                    <a href="#" class="card-link">Lien 2</a>
+                    <a href="#" class="btn bg-primary text-white">Ajouter au panier</a>
                 </div>
             </div>
         </div>
