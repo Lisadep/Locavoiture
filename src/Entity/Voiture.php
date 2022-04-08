@@ -35,6 +35,9 @@ class Voiture
     #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
+    #[ORM\ManyToOne(targetEntity: Panier::class, inversedBy: 'voiture')]
+    private $panier;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +123,18 @@ class Voiture
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPanier(): ?Panier
+    {
+        return $this->panier;
+    }
+
+    public function setPanier(?Panier $panier): self
+    {
+        $this->panier = $panier;
 
         return $this;
     }

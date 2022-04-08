@@ -45,17 +45,17 @@
                         {# S'il y a une session ouverte #}
                         {% if app.user %}
                             <div class="col-12 col-lg-2">
-                                <a href="#" type="button" class="btn bg-dark text-white fw-bold shadow">Panier</a>
+                                <a href="{{ path ('panier') }}" type="button" class="btn bg-dark text-white fw-bold shadow">Panier</a>
                             </div>
                             <div class="col-12 col-lg-2">
-                                <a href="{{ path ('app_logout')}}" type="button" class="btn bg-dark text-white fw-bold shadow">Deconnexion</a>
+                                <a href="{{ path ('app_logout') }}" type="button" class="btn bg-dark text-white fw-bold shadow">Deconnexion</a>
                             </div>
                             {% else %}
                             <div class="col-12 col-lg-2">
-                                <a href="{{ path ('app_register')}}" type="button" class="btn bg-dark text-white fw-bold shadow">Inscription</a>
+                                <a href="{{ path ('app_register') }}" type="button" class="btn bg-dark text-white fw-bold shadow">Inscription</a>
                             </div>
                             <div class="col-12 col-lg-2">
-                                <a href="{{ path ('app_login')}}" type="button" class="btn bg-dark text-white fw-bold shadow">Connexion</a>
+                                <a href="{{ path ('app_login') }}" type="button" class="btn bg-dark text-white fw-bold shadow">Connexion</a>
                             </div>
                             {% endif %}
                             {# Vérification si le user en session est admin #}

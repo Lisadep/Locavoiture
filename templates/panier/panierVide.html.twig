@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Panier vide' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <hr class="pt-1 mt-5">
+            <h3>Votre panier est vide, veuillez ajouter une voiture</h3>
+            <a href="{{ path('pageAccueil') }}" type="button" class="btn bg-primary text-light fw-bold">Revenir à la liste des voitures</a>    
+            <hr class="pt-1 mt-3">
+        </div>
+    </div>
+{% endblock %}

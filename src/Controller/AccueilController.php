@@ -23,19 +23,19 @@ class AccueilController extends AbstractController
         // Logique de programmation :
         // Aller chercher la liste des voitures de la BDD qui sont 'active'
         $voitures = $repository->findby(["active" => 1]);
-        // dd($voitures);
+        //dd($voitures);
 
         // Afficher en front le prix /100 pr av un prix correct
         // $prix = 'prix';
         // Passage en revue de chaque prix de voitures pr diviser son prix par 100
         // sans enregistrer en BDD
 
-        // foreach ($voitures as $key => $voiture):
-        //     $prixOrigine = $voiture->getPrix();
-        //     // transformation du prix
-        //     $prixTransforme = floatval($prixOrigine/100);
-        //     $voiture->setPrix($prixTransforme);
-        // endforeach;
+        foreach ($voitures as $key => $voiture):
+            $prixOrigine = $voiture->getPrix();
+            // transformation du prix
+            $prixTransforme = floatval($prixOrigine/100);
+            $voiture->setPrix($prixTransforme);
+        endforeach;
 
         // retour de la vue
         return $this->render('accueil/accueil.html.twig', [

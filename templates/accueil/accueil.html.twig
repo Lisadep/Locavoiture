@@ -23,7 +23,7 @@
                     <li class="list-group-item">{{ voiture.prix|number_format(2, ',', '') }}&ensp;€</li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="btn bg-primary text-white">Ajouter au panier</a>
+                    <a href="{{ path ('panier', {id: voiture.id}) }}" class="btn bg-primary text-white">Ajouter au panier</a>
                 </div>
             </div>
         </div>

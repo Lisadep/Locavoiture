@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Votre panier' %}
+
+{% block body %}
+{# {{ dump (user) }} #}
+{# {{ dump (panier) }} #}
+{# {{ dump (request) }} #}
+<div class="container">
+    <div class="row text-center mt-5">
+        <hr class="pt-1 mt5">
+        <h2>Votre panier</h2>
+        <hr class="pt-1 mt5">
+        <div class="row mt-5">
+            <table class="table table-light">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Marque</th>
+                        <th>Couleur</th>
+                        <th>Prix</th>
+                        <th>Supprimer du panier</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for voiture in panier.voiture %}
+                    <tr>
+                        <td>{{ voiture.nom }}</td>
+                        <td>{{ voiture.marque }}</td>
+                        <td>{{ voiture.couleur }}</td>
+                        <td>{{ (voiture.prix / 100)|number_format(2, ',', '') }}</td>
+                        <td><a href="{{ path ('supprimerVoiturePanier', { id: voiture.id }) }}" type="button" class="btn bg-warning text-dark fw-bold">Supprimer</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Prix total :</th>
+                        <th> {{ panier.prixTotal|number_format(2, ',', '') }}&ensp;€</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="" pt-3>
+            <a href="{{ path ('pageAccueil') }}" class="btn bg-primary text-white fw-bold">Retour</a>
+        </div>
+        <hr class="w-50 pt-1 mt-5">
+    </div>
+</div>
+{% endblock %}
